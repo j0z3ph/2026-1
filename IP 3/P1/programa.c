@@ -31,7 +31,7 @@ int main()
 
 
     char cadena[20];
-    gets(cadena);
+    fgets(cadena, 20, stdin);
     puts(cadena);
 
     puts("Adios");
