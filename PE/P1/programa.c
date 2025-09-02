@@ -18,10 +18,20 @@ int main()
     putc(getc(stdin), stdout);
     */
 
+    /*putchar(getchar());
     putchar(getchar());
     putchar(getchar());
-    putchar(getchar());
-    
+    */
+
+    /*char letra = getc(stdin);
+    putc(letra, stdout);
+    */
+
+    char cadena[20];
+    fgets(cadena, 20, stdin);
+
+    puts(cadena);
+
 
     return 0;
 }
