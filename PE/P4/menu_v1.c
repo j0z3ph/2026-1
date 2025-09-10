@@ -15,8 +15,14 @@ int main()
 {
     int opcion = 0;
 
-    while (opcion != 5)
+    do
     {
+        #ifdef _WIN32
+        system("cls");
+        #else
+        system("clear");
+        #endif
+
         printf("\tMenu\n");
         printf("1. Opcion 1\n");
         printf("2. Opcion 2\n");
@@ -25,8 +31,7 @@ int main()
         printf("5. Salir\n");
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
-        while (getc(stdin) != '\n')
-            ;
+        while (getc(stdin) != '\n');
 
         switch (opcion)
         {
@@ -55,10 +60,9 @@ int main()
         if (opcion != 5)
         {
             printf("\nPresione ENTER para continuar...");
-            while (getc(stdin) != '\n')
-                ;
+            while (getc(stdin) != '\n');
         }
-    }
+    } while (opcion != 5);
 
     return 0;
 }
