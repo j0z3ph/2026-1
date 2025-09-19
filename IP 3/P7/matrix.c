@@ -24,8 +24,7 @@ int main()
             scanf("%i", &matrix[fila][columna]);
         }
     }
-
-
+    
     for (int fila = 0; fila < 3; fila++)
     {
         for (int columna = 0; columna < 3; columna++)
