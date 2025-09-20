@@ -12,11 +12,12 @@
 #include <stdlib.h> // Aqui esta rand()
 #include <time.h>
 
-#define ENE 10
+#define ENE 100
 
 int main()
 {
     int arrg[ENE];
+    int aux;
 
     srand(time(NULL));
     
@@ -26,11 +27,32 @@ int main()
         arrg[i] = (rand() % 11) + 15;
     }
 
+    printf("[ ");
     for (int i = 0; i < ENE; i++)
     {
         printf("%i ", arrg[i]);
     }
+    printf("]\n");
+
+    // Aplicamos la burbuja
+    for (int j = 0; j < ENE - 1; j++)
+    {
+        for (int i = 0; i < ENE - 1 - j; i++)
+        {
+            if(arrg[i] > arrg[i+1]){
+                aux = arrg[i];
+                arrg[i] = arrg[i+1];
+                arrg[i+1] = aux;
+            }
+        }
+    }
     
+    printf("[ ");
+    for (int i = 0; i < ENE; i++)
+    {
+        printf("%i ", arrg[i]);
+    }
+    printf("]\n");
 
     return 0;
 }
