@@ -13,11 +13,12 @@
 
 using namespace std;
 
+template<typename T>
 class Matriz {
     private:
     int filas;
     int columnas;
-    int *data;
+    T *data;
 
     public:
     Matriz(int filas, int columnas) {
@@ -28,18 +29,18 @@ class Matriz {
 
         this->filas = filas;
         this->columnas = columnas;
-        this->data = new int[this->filas * this->columnas];
+        this->data = new T[this->filas * this->columnas];
     }
 
     ~Matriz() {
         delete[] this->data;
     }
 
-    void setValor(int fila, int columna, int valor){
+    void setValor(int fila, int columna, T valor){
         this->data[(this->columnas * fila) + columna] = valor;
     }
 
-    int getValor(int fila, int columna) {
+    T getValor(int fila, int columna) {
         return this->data[(this->columnas * fila) + columna];
     }
 
@@ -57,19 +58,22 @@ class Matriz {
 
 };
 
+class Cosa {
+
+};
 
 int main()
 {
-    for (;;)
+    /*for (;;)
     {
         Matriz a(100,100);
-    }
+    }*/
     
 
 
     try
     {
-        Matriz m(4,3);
+        Matriz<int> m(4,3);
         int cont = 1;
 
         for (int f = 0; f < 4; f++)
