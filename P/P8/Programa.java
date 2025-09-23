@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 class Persona {
 
@@ -12,12 +12,12 @@ class Persona {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private Date fnacimiento;
+    private LocalDate fnacimiento;
     private String curp;
 
     // Constructor por defecto
     Persona(String nombre, String apellido1,
-            String apellido2, Date fnacimiento, String curp) {
+            String apellido2, LocalDate fnacimiento, String curp) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
@@ -51,7 +51,7 @@ class Persona {
         return curp;
     }
 
-    public Date getFnacimiento() {
+    public LocalDate getFnacimiento() {
         return fnacimiento;
     }
 
@@ -72,7 +72,7 @@ class Persona {
         this.curp = curp;
     }
 
-    public void setFnacimiento(Date fnacimiento) {
+    public void setFnacimiento(LocalDate fnacimiento) {
         this.fnacimiento = fnacimiento;
     }
 
@@ -91,7 +91,7 @@ public class Programa {
 
     public static void main(String[] args) {
         {
-            Persona p1 = new Persona("Evelin", "Hernandez", "Gomez", "KJDKAJHJDKAJHJKDHKJA");
+            Persona p1 = new Persona("Evelin", "Hernandez", "Gomez", LocalDate.of(2006, 11, 16), "KJDKAJHJDKAJHJKDHKJA");
 
             p1.setApellido2("null");
 
