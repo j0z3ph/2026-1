@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>452</width>
+    <height>327</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Registro de Usuarios</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>421</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Lista de usuarios</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>401</width>
+       <height>211</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>452</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>&amp;Archivo</string>
+    </property>
+    <addaction name="actionRegistrar"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>A&amp;yuda</string>
+    </property>
+    <addaction name="actionAcerca_del_programa"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <action name="actionRegistrar">
+   <property name="text">
+    <string>&amp;Registrar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>&amp;Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionAcerca_del_programa">
+   <property name="text">
+    <string>Acerca del programa</string>
+   </property>
+  </action>
+  <action name="actionOtra_cosa">
+   <property name="text">
+    <string>Otra cosa</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
