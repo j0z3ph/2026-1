@@ -1,17 +1,4 @@
-/**
- * @file herencia.cpp
- * @author Jose Luis Cruz (jlcruz@ipn.mx)
- * @brief Jugando con herencia
- * @version 0.1
- * @date 2025-09-23
- * 
- * @copyright Copyright (c) 2025
- * 
- */
-#include <iostream>
-#include <stdexcept>
 
-using namespace std;
 
 class Figura {
 protected:
@@ -75,24 +62,3 @@ class Triangulo : public Figura {
 };
 
 
-int main()
-{
-    try
-    {
-        
-        Rectangulo rect(5,6);
-        cout << rect.area() << endl;
-
-        Triangulo tri(5,6);
-        cout << tri.area() << endl;
-
-    }
-    catch(const std::runtime_error& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-    
-    
-    return 0;
-}
