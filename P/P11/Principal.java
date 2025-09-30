@@ -6,6 +6,7 @@ public class Principal {
 
         System.out.println(rect.area());
         System.out.println(tri.area());
+
         
     }
     
