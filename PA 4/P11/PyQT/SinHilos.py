@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QMainWindow
-from Ui_Hilos import *
+from PySide6.QtWidgets import QMainWindow
+from Hilos_ui import *
 import sys
 import time
 
@@ -20,7 +20,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
