@@ -1,0 +1,2 @@
+ALTER TABLE [esquema].[Tabla] DROP CONSTRAINT [UC_ID]
+GO
