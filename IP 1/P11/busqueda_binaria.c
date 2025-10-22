@@ -14,6 +14,34 @@
 #include <stdbool.h>
 #define N 100000
 
+void genera_aleatorios(int arrg[], int n) {
+    static int i = 0;
+    if ( i < n)
+    {
+        arrg[i] = rand() % (n * 10);
+        i++;
+        genera_aleatorios(arrg, n);
+    }
+}
+
+bool busqueda_binaria(int arrg[], int ini, int fin, int x) {
+    int m;
+    static bool encontrado = false;
+    if(ini <= fin) {
+        m = ((fin - ini)/2) + ini;
+        if(arrg[m] == x) {
+            encontrado = true;
+            return encontrado;
+        } else if(arrg[m] < x) {
+            ini = m + 1;
+        } else {
+            fin = m - 1;
+        }
+        busqueda_binaria(arrg, ini, fin, x);
+    }
+    return encontrado;
+}
+
 int main()
 {
     int arrg[N];
@@ -26,10 +54,7 @@ int main()
 
     srand(time(NULL));
 
-    for (int i = 0; i < N; i++)
-    {
-        arrg[i] = rand() % (N * 10);
-    }
+    genera_aleatorios(arrg, N);
 
     for (int i = 0; i < N - 1; i++)
     {
@@ -53,17 +78,7 @@ int main()
     printf("\nUsuario, ingresa un valor 🤬 ");
     scanf("%i", &x);
 
-    while(ini <= fin) {
-        m = ((fin - ini)/2) + ini;
-        if(arrg[m] == x) {
-            encontrado = true;
-            break;
-        } else if(arrg[m] < x) {
-            ini = m + 1;
-        } else {
-            fin = m - 1;
-        }
-    }
+    encontrado = busqueda_binaria(arrg, 0, N-1, x);
 
     if(encontrado) {
         printf("Felicidades 🥳 eres el mejor 👅");
