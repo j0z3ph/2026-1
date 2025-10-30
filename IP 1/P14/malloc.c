@@ -14,7 +14,7 @@
 int main()
 {
     int *entero = (int *)malloc(4);
-    *entero = 5;
+    *entero = 5; 
 
     printf("%p - %p - %i\n", &entero, entero, *entero);
     

@@ -13,7 +13,8 @@
 
 void nada() {
     int *a = (int *)malloc(sizeof(int));
-    *a = 10;
+    *a = 10; //00000000000000000000000000001010 
+    free(a);
 }
 
 
