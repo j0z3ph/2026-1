@@ -15,6 +15,7 @@ void nada() {
     int *a = (int*)malloc(sizeof(int));
     if(a == NULL); // No fue posible reservar espacio en la memoria
     else *a = 10;// 00000000000000000000000000001010
+    free(a);
 }
 
 
