@@ -35,6 +35,8 @@ typedef struct Contacto // Tipo de dato abstracto
 int main()
 {
     struct Fecha f;
+    Fecha f1;
+    
     
     int a;
     entero b;
