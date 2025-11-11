@@ -1,7 +1,7 @@
 /**
- * @file fifo.c
+ * @file lifo.c
  * @author Jose Luis Cruz (jlcruz@ipn.mx)
- * @brief First In First Out (cola) (aka queue)
+ * @brief Last In First Out (pila) (aka stack)
  * @version 0.1
  * @date 2025-11-05
  *
@@ -21,8 +21,9 @@ void insertar(int **arrg, int *cont, int valor)
     else
     {
         *arrg = realloc(*arrg, sizeof(int) * (*cont + 1));
+        memcpy(*arrg + 1, *arrg, sizeof(int) * (*cont));
     }
-    (*arrg)[*cont] = valor;
+    (*arrg)[0] = valor;
     (*cont)++;
 }
 
