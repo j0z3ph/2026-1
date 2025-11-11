@@ -56,3 +56,5 @@ dkms.conf
 **/.vscode/*
 **/__pycache__/*
 *.class
+/P/P21/MiPrimerProyectoNetBeanssoso/nbproject/private/
+/P/P21/MiPrimerProyectoNetBeanssoso/build/
