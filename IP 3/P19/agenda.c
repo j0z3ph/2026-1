@@ -12,58 +12,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tools.h"
+#include "agendalib.h"
 
-/*** Definiciones de Estructuras ***/
-
-typedef struct Fecha
-{
-    int dia;
-    int mes;
-    int anio;
-} Fecha;
-
-typedef struct Contacto
-{
-    char nombre[100];
-    char telefono[15];
-    char correo[100];
-    Fecha fecha_nac;
-} Contacto;
-
-typedef struct Agenda
-{
-    Contacto *lista; // Representa la lista dinamica
-    int cont;        // Representa la cantidad de elementos en la lista
-    /// @brief Permite agregar un contacto a la agenda
-    /// @param self La misma instancia de la agenda
-    /// @param contacto El contacto
-    void (*agregar)(struct Agenda **self, Contacto contacto);
-    /// @brief Lista en pantalla los contactos
-    /// @param self Yo mismo
-    void (*listar)(struct Agenda **self);
-} Agenda;
-
-/*** Declaraciones de Funciones ***/
-
-/// @brief Crea una nueva instancia en memoria dinamida de una agenda
-/// @return El puntero de la nueva variable
-Agenda *newAgenta();
-/// @brief Permite agregar un contacto a la agenda
-/// @param agenda La agenda
-/// @param contacto El contacto
-void agregar(Agenda **agenda, Contacto contacto);
-/// @brief Lista en pantalla los contactos
-/// @param agenda La agenda
-void listar(Agenda **agenda);
-void limpiaEnters(char *cadena);
 
 int main()
 {
-    char *menu[] = {"Agregar Contacto", "Buscar Contacto", "Editar Contacto", "Eliminar Contacto", "Listar Contactos", "Salir"};
+    char *menu[] = {"Agregar Contacto", "Llamar Contacto", "Editar Contacto", "Eliminar Contacto", "Listar Contactos", "Salir"};
     int seleccion = 0;
 
     Agenda *agenda = newAgenta();
     Contacto tmp;
+    int indice;
 
     while (seleccion != 5)
     {
@@ -87,15 +46,41 @@ int main()
         }
         else if (seleccion == 1)
         {
-            // Buscar contacto
+            // Llamar contacto
+            indice = agenda->seleccionar(&agenda, "Seleccione un contacto a llamar");
+            if (indice > -1)
+                printf("Llamando a %s...\n", agenda->lista[indice].telefono);
         }
         else if (seleccion == 2)
         {
             // Editar contacto
+            indice = agenda->seleccionar(&agenda, "Seleccione un contacto a editar");
+
+            if (indice > -1)
+            {
+                printf("Ingrese el nombre: ");
+                fgets(agenda->lista[indice].nombre, 100, stdin);
+                limpiaEnters(agenda->lista[indice].nombre);
+                printf("Ingrese el telefono: ");
+                fgets(agenda->lista[indice].telefono, 15, stdin);
+                limpiaEnters(agenda->lista[indice].telefono);
+                printf("Ingrese el correo: ");
+                fgets(agenda->lista[indice].correo, 100, stdin);
+                limpiaEnters(agenda->lista[indice].correo);
+                printf("Ingrese la fecha de nacimineto [dd-mm-aaaa]: ");
+                scanf("%i-%i-%i", &agenda->lista[indice].fecha_nac.dia, &agenda->lista[indice].fecha_nac.mes, &agenda->lista[indice].fecha_nac.anio);
+                limpiaBuffer();
+            }
         }
         else if (seleccion == 3)
         {
             // Eliminar contacto
+            indice = agenda->seleccionar(&agenda, "Seleccione un contacto a eliminar");
+
+            if (indice > -1)
+            {
+                agenda->eliminar(&agenda, indice);
+            }
         }
         else if (seleccion == 4)
         {
@@ -105,7 +90,7 @@ int main()
         else
         {
             // Salir
-            printf("Adios :D");
+            printf("Adios :D\n");
         }
         if (seleccion != 5)
             pausa();
@@ -113,52 +98,3 @@ int main()
     return 0;
 }
 
-/*** Definiciones de Funciones ***/
-
-void limpiaEnters(char *cadena)
-{
-    cadena[strlen(cadena) - 1] = '\0';
-}
-
-Agenda *newAgenta()
-{
-    Agenda *agenda = malloc(sizeof(Agenda));
-    agenda->lista = NULL;
-    //(*agenda).lista = NULL; // Lo mismo de arriba pero con desreferencia
-    agenda->cont = 0;
-    agenda->listar = listar;
-    agenda->agregar = agregar;
-
-    return agenda;
-}
-
-void agregar(Agenda **agenda, Contacto contacto)
-{
-    if ((*agenda)->lista == NULL)
-    {
-        // La lista no existe, por lo que la creamos
-        (*agenda)->lista = malloc(sizeof(Contacto));
-        (*agenda)->lista[0] = contacto;
-        (*agenda)->cont = 1;
-    }
-    else
-    {
-        // La lista ya existe, debemos agregar
-        (*agenda)->lista = realloc((*agenda)->lista, sizeof(Contacto) * ((*agenda)->cont + 1));
-        (*agenda)->lista[(*agenda)->cont] = contacto;
-        (*agenda)->cont++;
-    }
-}
-
-void listar(Agenda **agenda)
-{
-    printf("Lista de contactos\n");
-    for (int i = 0; i < (*agenda)->cont; i++)
-    {
-        printf("Contacto %i\n", i + 1);
-        printf("Nombre: %s\nTelefono: %s\nCorreo: %s\n", (*agenda)->lista[i].nombre,
-               (*agenda)->lista[i].telefono, (*agenda)->lista[i].correo);
-        printf("Fecha de Nacimiento: %02i-%02i-%04i\n", (*agenda)->lista[i].fecha_nac.dia,
-               (*agenda)->lista[i].fecha_nac.mes, (*agenda)->lista[i].fecha_nac.anio);
-    }
-}
