@@ -41,6 +41,42 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
     def update_img(self, img):
         self.cachi = img
+        
+        img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        hmin = self.HMin.value()
+        hmax = self.HMax.value()
+        smin = self.SMin.value()
+        smax = self.SMax.value()
+        vmin = self.VMin.value()
+        vmax = self.VMax.value()
+        
+        rango_min = np.array([hmin, smin, vmin])
+        rango_max = np.array([hmax, smax, vmax])
+        
+        mascara = cv2.inRange(img_hsv, rango_min, rango_max)
+        
+        #cv2.imshow("Mascara", mascara)
+        self.cachi = cv2.bitwise_and(img, img, mask=mascara)
+        
+        contornos, _ = cv2.findContours(mascara, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE )
+        
+        area_max = 0.0
+        idx = -1
+        cont = 0
+        for contorno in contornos:
+            if cv2.contourArea(contorno) > area_max:
+                area_max = cv2.contourArea(contorno)
+                idx = cont
+            cont = cont + 1
+        
+        if idx >= 0:
+            rect = cv2.boundingRect(contornos[idx])
+            cv2.rectangle(self.cachi, rect, (0, 255, 0), 3)
+        
+        #for contorno in contornos:
+        #    rect = cv2.boundingRect(contorno)
+        #    cv2.rectangle(self.cachi, rect, (0, 255, 0), 3)
+        
         self.cambia_brisho()
         
     def cambia_brisho(self):
