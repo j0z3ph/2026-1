@@ -59,6 +59,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         mascara = cv2.inRange(hvs_img, rango_minimo, rango_maximo)
         self.cv_image = cv2.bitwise_and(self.cv_image, self.cv_image, mask=mascara)
         
+        ## Contornos
+        #contornos, _ =cv2.findContours(mascara, cv2.RETR_LIST, cv2.#CHAIN_APPROX_SIMPLE)
+        #maxArea = 0.0
+        #cont = 0
+        #idx = -1
+        #for contorno in contornos:
+        #    if(cv2.contourArea(contorno) > maxArea):
+        #        maxArea = cv2.contourArea(contorno)
+        #        idx = cont
+        #    cont = cont + 1
+        #rect = cv2.boundingRect(contornos[idx])
+        #cv2.rectangle(self.cv_image, rect, (0,255,0), 2)
+        
+        
+        
         self.muestra_imagen()
         
     def muestra_imagen(self):
