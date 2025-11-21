@@ -37,12 +37,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.brillo.valueChanged.connect(self.muestra_imagen)
         
-        self.hmin.valueChanged.connect(self.segmentacion)
-        self.hmax.valueChanged.connect(self.segmentacion)
-        self.smin.valueChanged.connect(self.segmentacion)
-        self.smax.valueChanged.connect(self.segmentacion)
-        self.vmin.valueChanged.connect(self.segmentacion)
-        self.vmax.valueChanged.connect(self.segmentacion)
+        #self.hmin.valueChanged.connect(self.segmentacion)
+        #self.hmax.valueChanged.connect(self.segmentacion)
+        #self.smin.valueChanged.connect(self.segmentacion)
+        #self.smax.valueChanged.connect(self.segmentacion)
+        #self.vmin.valueChanged.connect(self.segmentacion)
+        #self.vmax.valueChanged.connect(self.segmentacion)
         
     def segmentacion(self):
         hmin = self.hmin.value()
@@ -60,17 +60,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.cv_image = cv2.bitwise_and(self.cv_image, self.cv_image, mask=mascara)
         
         ## Contornos
-        #contornos, _ =cv2.findContours(mascara, cv2.RETR_LIST, cv2.#CHAIN_APPROX_SIMPLE)
-        #maxArea = 0.0
-        #cont = 0
-        #idx = -1
-        #for contorno in contornos:
-        #    if(cv2.contourArea(contorno) > maxArea):
-        #        maxArea = cv2.contourArea(contorno)
-        #        idx = cont
-        #    cont = cont + 1
-        #rect = cv2.boundingRect(contornos[idx])
-        #cv2.rectangle(self.cv_image, rect, (0,255,0), 2)
+        contornos, _ =cv2.findContours(mascara, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        maxArea = 0.0
+        cont = 0
+        idx = -1
+        for contorno in contornos:
+            if(cv2.contourArea(contorno) > maxArea):
+                maxArea = cv2.contourArea(contorno)
+                idx = cont
+            cont = cont + 1
+        rect = cv2.boundingRect(contornos[idx])
+        cv2.rectangle(self.cv_image, rect, (0,255,0), 2)
         
         
         
