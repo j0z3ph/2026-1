@@ -54,6 +54,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         rango_max = np.array([hmax, smax, vmax])
         
         mascara = cv2.inRange(img_hsv, rango_min, rango_max)
+        cv2.imshow("Mascara", mascara)
+        # Intentando mejorar la mascara
+        mascara = cv2.erode(mascara, cv2.getStructuringElement(cv2.MORPH_RECT, (11,11)))
+        cv2.imshow("Mascara Erocionada", mascara)
+        mascara = cv2.dilate(mascara, cv2.getStructuringElement(cv2.MORPH_RECT, (11,11)))
+        cv2.imshow("Mascara Dilatada", mascara)
+        mascara = cv2.erode(mascara, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11,11)))
+        cv2.imshow("Mascara Erocionada x2", mascara)
         
         #cv2.imshow("Mascara", mascara)
         self.cachi = cv2.bitwise_and(img, img, mask=mascara)

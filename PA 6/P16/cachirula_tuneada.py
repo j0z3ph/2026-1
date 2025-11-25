@@ -11,7 +11,8 @@ cwk = kernel.shape[1] // 2
 
 img2 = np.zeros((h,w,c), np.uint8)
 
-
+img2 = cv2.filter2D(img, -1, kernel)
+"""
 for i in range(chk, h-chk):
     for j in range(cwk, w-cwk):
         suma = 0
@@ -20,7 +21,7 @@ for i in range(chk, h-chk):
                 suma = suma + (kernel[ik, jk] * img[i - chk + ik, j - cwk + jk])
         img2[i,j] = suma
 
-
+"""
 cv2.imshow("Cachirula", img)
 cv2.imshow("Cachirula Tuneada", img2)
 
