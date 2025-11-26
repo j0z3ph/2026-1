@@ -57,6 +57,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         hvs_img = cv2.cvtColor(self.cv_image, cv2.COLOR_BGR2HSV)
         mascara = cv2.inRange(hvs_img, rango_minimo, rango_maximo)
+        
+        cv2.imshow("Mascara", mascara)
+        
+        mascara = cv2.erode(mascara,cv2.getStructuringElement(cv2.MORPH_CROSS, (11,11)))
+        cv2.imshow("Mascara Erosionada", mascara)
+        
+        mascara = cv2.dilate(mascara,cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11,11)))
+        cv2.imshow("Mascara Dilatada", mascara)
+        
+        
         self.cv_image = cv2.bitwise_and(self.cv_image, self.cv_image, mask=mascara)
         
         ## Contornos

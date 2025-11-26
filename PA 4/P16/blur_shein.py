@@ -8,6 +8,10 @@ h, w, c = imagen.shape
 nueva_imagen = np.zeros((h,w,c), np.uint8)
 kernel = np.ones((7,7)) / 49
 
+nueva_imagen = cv2.filter2D(imagen, -1, kernel)
+
+
+'''
 print(kernel)
 
 cxk = kernel.shape[0]//2
@@ -20,6 +24,8 @@ for i in range(cyk, h-cyk):
             for jk in range(kernel.shape[1]):
                 suma = suma + (kernel[ik,jk] * imagen[i - cyk + ik, j - cxk + jk])
         nueva_imagen[i,j] = suma
+
+'''
 
 cv2.imshow("Shein", imagen)
 cv2.imshow("Blur Shein", nueva_imagen)
