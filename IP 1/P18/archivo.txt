@@ -1,1 +1,2 @@
-100 Texto 3.14
+Esto es un entero: 6
+Esto es un flotante: 3.140000
