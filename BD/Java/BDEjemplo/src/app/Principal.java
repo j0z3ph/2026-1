@@ -21,12 +21,12 @@ public class Principal extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Principal.class.getName());
 
     private final String DBURL
-            = "jdbc:sqlserver://3.150.63.179;"
+            = "jdbc:sqlserver://ip;"
             + "databaseName=EXAMPLE1;"
             + "encrypt=true;"
             + "trustServerCertificate=true;"
-            + "user=Administrator;"
-            + "password=Wn!.CdNmhZG6pz$c+jKRVqHxAwtX9%<ysgU8k5J>M72SEYDTB&;";
+            + "user=user;"
+            + "password=password;";
 
     
     /**
