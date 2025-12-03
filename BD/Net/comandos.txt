@@ -1,0 +1,6 @@
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+
+Scaffold-DbContext "Server=3.150.63.179;Database=BikesDB;User Id=ElProfe;Password=0rAcrlrETo3H6xa_r9S_;Encrypt=True;TrustServerCertificate=True;Trusted_Connection=False;Integrated Security=False;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
