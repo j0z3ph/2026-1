@@ -181,7 +181,7 @@ class MLP:
 
 if __name__ == "__main__":
     entradas = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    salidas = np.array([0, 1, 1, 0])
+salidas = np.array([0, 1, 1, 0])
 
     nn = MLP()
     nn.entrenar(entradas, salidas, 0.2, 10001)
