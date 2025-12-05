@@ -36,6 +36,7 @@ int main()
     bool derecha_presionada = false;
     bool btn = false;
     float jx, jy;
+    bool vivo = true;
 
     ventana.tituloVentana("Hola Windows :D");
 
@@ -113,6 +114,10 @@ int main()
         if(!btn) {
             ventana.texto1(rx, ry, "Piyum!!", 50, "MV Boli");
             esp32->digitalWrite(esp32, MTR, true);
+            if(rx > rectx && rx < rectx + ventana.anchoImagen(trex) &&
+               ry > recty && ry < recty + ventana.altoImagen(trex)) {
+                vivo = false;
+            }
         } else {
             esp32->digitalWrite(esp32, MTR, false);
         }
@@ -127,7 +132,11 @@ int main()
 
         // ESTE ES EL BUENO
         // ventana.rectanguloRelleno(rectx, recty, rectx + 100, recty + 100);
-        ventana.muestraImagen(rectx, recty, trex);
+        
+        if(vivo) {
+            ventana.muestraImagen(rectx, recty, trex);
+        }
+        
         // ventana.muestraImagenEscalada(rectx, recty, 100, 100, trex);
 
         ventana.colorRGB(28, 50, 123);
