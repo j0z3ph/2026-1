@@ -14,17 +14,19 @@
 #define BTN 4
 #define JX 15
 #define JY 2
+#define MTR 13
 
-#define AJUSTE_X 0.45
+#define AJUSTE_X 0.5
 #define AJUSTE_Y 0.36
 
 int main()
 {
     Imagen *trex = ventana.creaImagenConMascara("trex.bmp", "trexmascara.bmp");
-    Board *esp32 = connectDevice("COM7", B115200);
+    Board *esp32 = connectDevice("COM6", B115200);
     esp32->pinMode(esp32, JX, INPUT);
     esp32->pinMode(esp32, JY, INPUT);
     esp32->pinMode(esp32, BTN, INPUT_PULLUP);
+    esp32->pinMode(esp32, MTR, OUTPUT);
 
     int rx = 400, ry = 300;
     int rectx = 100, recty = 100;
@@ -110,6 +112,9 @@ int main()
 
         if(!btn) {
             ventana.texto1(rx, ry, "Piyum!!", 50, "MV Boli");
+            esp32->digitalWrite(esp32, MTR, true);
+        } else {
+            esp32->digitalWrite(esp32, MTR, false);
         }
 
         ventana.colorFondo(COLORES.VERDE); // Dibujamos
