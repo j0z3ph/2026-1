@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BicisEjemplo.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 
 namespace BicisEjemplo.Models;
 
-public partial class BikesDbContext : DbContext
+public partial class BikesDbContext : IdentityDbContext<BicisEjemploUser>
 {
     public BikesDbContext()
     {
@@ -35,12 +37,10 @@ public partial class BikesDbContext : DbContext
 
     public virtual DbSet<VProducto> VProductos { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=3.150.63.179;Database=BikesDB;User Id=ElProfe;Password=0rAcrlrETo3H6xa_r9S_;Encrypt=True;TrustServerCertificate=True;Trusted_Connection=False;Integrated Security=False;");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Brand>(entity =>
         {
             entity.HasKey(e => e.BrandId).HasName("PK__brands__5E5A8E27ED6222A0");

@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("BicisEjemplo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87050fbcdab792741eda5c01306c9e892bd68c80")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f81d8cd134bd32b6c9a626fc031532495fa2013")]
 [assembly: System.Reflection.AssemblyProductAttribute("BicisEjemplo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BicisEjemplo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

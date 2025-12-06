@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\controllers\\storescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\controllers\\storescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\controllers\\storescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\controllers\\storescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\bicisejemplo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\bicisejemplo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\models\\bikesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CC62895-05A0-4DF9-9023-8B28BB07A948}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\models\\bikesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|c:\\repos\\2026-1\\bd\\net\\bicisejemplo\\bicisejemplo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC830429-9A57-0728-0479-BC4CDFA947AB}|BicisEjemplo\\BicisEjemplo.csproj|solutionrelative:bicisejemplo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BicisEjemplo\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BicisEjemplo\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T21:56:02.842Z",
+              "WhenOpened": "2025-12-05T23:00:33.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StoresController.cs",
               "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Controllers\\StoresController.cs",
               "RelativeDocumentMoniker": "BicisEjemplo\\Controllers\\StoresController.cs",
               "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Controllers\\StoresController.cs",
               "RelativeToolTip": "BicisEjemplo\\Controllers\\StoresController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwD0AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T21:52:17.859Z",
+              "WhenOpened": "2025-12-05T22:57:26.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BicisEjemplo",
-              "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\BicisEjemplo.csproj",
-              "RelativeDocumentMoniker": "BicisEjemplo\\BicisEjemplo.csproj",
-              "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\BicisEjemplo.csproj",
-              "RelativeToolTip": "BicisEjemplo\\BicisEjemplo.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-03T21:49:15.495Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "BicisEjemplo\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "BicisEjemplo\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T21:46:32.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Program.cs",
               "RelativeDocumentMoniker": "BicisEjemplo\\Program.cs",
               "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Program.cs",
               "RelativeToolTip": "BicisEjemplo\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBIAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T21:39:06.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BikesDbContext.cs",
-              "DocumentMoniker": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Models\\BikesDbContext.cs",
-              "RelativeDocumentMoniker": "BicisEjemplo\\Models\\BikesDbContext.cs",
-              "ToolTip": "C:\\Repos\\2026-1\\BD\\Net\\BicisEjemplo\\BicisEjemplo\\Models\\BikesDbContext.cs",
-              "RelativeToolTip": "BicisEjemplo\\Models\\BikesDbContext.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAIwCcAAADYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T21:36:32.305Z",
+              "WhenOpened": "2025-12-05T22:55:48.948Z",
               "EditorCaption": ""
             }
           ]

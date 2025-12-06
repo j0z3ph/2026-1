@@ -16,12 +16,12 @@
 #define SW 4
 #define MOTOR 13
 
-#define AJUSTEX 0.45
-#define AJUSTEY 0.35
+#define AJUSTEX 0.5
+#define AJUSTEY 0.4
 
 int main()
 {
-    Board *esp32 = connectDevice("COM7", B115200);
+    Board *esp32 = connectDevice("COM6", B115200);
 
     Imagen *carro = ventana.creaImagenConMascara("carro.bmp", "carromascara.bmp");
     bool fs = false;
@@ -32,12 +32,12 @@ int main()
     float joyX, joyY;
     bool btn;
     int ajusteX, ajusteY;
+    bool vivo = true;
 
     esp32->pinMode(esp32, JX, INPUT);
     esp32->pinMode(esp32, JY, INPUT);
-    esp32->pinMode(esp32, SW, INPUT_PULLUP);   
-    esp32->pinMode(esp32, MOTOR, OUTPUT); 
-
+    esp32->pinMode(esp32, SW, INPUT_PULLUP);
+    esp32->pinMode(esp32, MOTOR, OUTPUT);
 
     ventana.tamanioVentana(800, 600);
     ventana.tituloVentana("Hola Windows");
@@ -51,24 +51,21 @@ int main()
         joyY = esp32->analogRead(esp32, JY);
         btn = esp32->digitalRead(esp32, SW);
 
-
         joyX -= AJUSTEX;
 
-        if(joyX >= 0.0)
+        if (joyX >= 0.0)
             ajusteX = joyX * (10.0 / (1.0 - AJUSTEX));
-        else 
+        else
             ajusteX = joyX * (11.0 / (AJUSTEX));
-
 
         joyY -= AJUSTEY;
 
-        if(joyY >= 0.0)
+        if (joyY >= 0.0)
             ajusteY = joyY * (11.0 / (1.0 - AJUSTEY));
-        else 
+        else
             ajusteY = joyY * (11.0 / (AJUSTEY));
 
-
-        //ventana.imprimeEnConsola("(%f, %f) - %i | %i, %i\n", joyX, joyY, btn, ajusteX, ajusteY);
+        // ventana.imprimeEnConsola("(%f, %f) - %i | %i, %i\n", joyX, joyY, btn, ajusteX, ajusteY);
 
         aceleracion += GRAVEDAD;
         cuadradoy += aceleracion;
@@ -100,7 +97,7 @@ int main()
             cuadradox = 0;
         }
 
-        //ventana.raton(&rx, &ry);
+        // ventana.raton(&rx, &ry);
         rx += ajusteX;
         ry += ajusteY;
 
@@ -124,7 +121,10 @@ int main()
         ventana.linea(50, 50, 200, 200); // Dibujamos
         ventana.rectangulo(100, 100, 200, 300);
 
-        ventana.muestraImagen(cuadradox, cuadradoy, carro);
+        if (vivo)
+        {
+            ventana.muestraImagen(cuadradox, cuadradoy, carro);
+        }
         // ventana.muestraImagenEscalada(cuadradox, cuadradoy,200,100, carro);
 
         // ventana.rectanguloRelleno(cuadradox, cuadradoy, cuadradox + 100, cuadradoy + 100);
@@ -139,10 +139,18 @@ int main()
 
         ventana.texto(100, 100, "Holi XD");
 
-        if(!btn) {
+        if (!btn)
+        {
             ventana.texto1(rx, ry, "Piyum", 50, "Ink Free");
             esp32->digitalWrite(esp32, MOTOR, true);
-        } else {
+            if (rx > cuadradox && rx < cuadradox + ventana.anchoImagen(carro) &&
+                ry > cuadradoy && ry < cuadradoy + ventana.altoImagen(carro))
+            {
+                vivo = false;
+            }
+        }
+        else
+        {
             esp32->digitalWrite(esp32, MOTOR, false);
         }
         ventana.texto2(400, 200, "Holi XD", 50, "Ink Free", true, true, true);

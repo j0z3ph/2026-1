@@ -1,5 +1,8 @@
 using BicisEjemplo.Models;
 using Microsoft.EntityFrameworkCore;
+using BicisEjemplo.Data;
+using Microsoft.AspNetCore.Identity;
+using BicisEjemplo.Areas.Identity.Data;
 
 namespace BicisEjemplo
 {
@@ -14,6 +17,11 @@ namespace BicisEjemplo
 
             // Agregamos el servicio de base de datos
             builder.Services.AddDbContext<BikesDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MiBD")));
+
+            builder.Services.AddDefaultIdentity<BicisEjemploUser>(
+                options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<BikesDbContext>();
             
             
             
@@ -38,6 +46,7 @@ namespace BicisEjemplo
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
+            app.MapRazorPages();
 
             app.Run();
         }
