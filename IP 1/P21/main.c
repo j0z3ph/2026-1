@@ -14,13 +14,14 @@
 #define JX 15
 #define JY 2
 #define BTN 4
-#define AJUSTE_X 0.44
-#define AJUSTE_Y 0.35
+#define MTR 13
 
+#define AJUSTE_X 0.51
+#define AJUSTE_Y 0.4
 
 int main()
 {
-    Board *esp32 = connectDevice("COM7", B115200);
+    Board *esp32 = connectDevice("COM6", B115200);
 
     Imagen *kirby = ventana.creaImagenConMascara("kirby.bmp", "kirbymascara.bmp");
 
@@ -29,6 +30,7 @@ int main()
     float jx, jy;
     int rx = 400, ry = 400;
     bool btn;
+    bool vivo = true;
     int rectx = 300, recty = 300;
     int aceleracion = 0;
     int ajuste_x, ajuste_y;
@@ -42,8 +44,17 @@ int main()
     esp32->pinMode(esp32, JX, INPUT);
     esp32->pinMode(esp32, JY, INPUT);
     esp32->pinMode(esp32, BTN, INPUT_PULLUP);
-    
+    esp32->pinMode(esp32, MTR, OUTPUT);
 
+    // quita ruido
+    for (size_t i = 0; i < 10; i++)
+    {
+        jx = esp32->analogRead(esp32, JX);
+        jy = esp32->analogRead(esp32, JY);
+        btn = esp32->digitalRead(esp32, BTN);
+        ventana.espera(10);
+    }
+    
     while (tecla != TECLAS.ESCAPE)
     {
 
@@ -53,21 +64,19 @@ int main()
 
         jx -= AJUSTE_X;
 
-        if(jx >= 0.0)
+        if (jx >= 0.0)
             ajuste_x = jx * (20.0 / (1.0 - AJUSTE_X));
-        else 
+        else
             ajuste_x = jx * (21.0 / (AJUSTE_X));
-
 
         jy -= AJUSTE_Y;
 
-        if(jy >= 0.0)
+        if (jy >= 0.0)
             ajuste_y = jy * (21.0 / (1.0 - AJUSTE_Y));
-        else 
+        else
             ajuste_y = jy * (21.0 / (AJUSTE_Y));
 
-        //ventana.imprimeEnConsola("(%f, %f)- %i | %i, %i\n", jx, jy, btn, ajuste_x, ajuste_y);
-
+        // ventana.imprimeEnConsola("(%f, %f)- %i | %i, %i\n", jx, jy, btn, ajuste_x, ajuste_y);
 
         tecla = ventana.teclaPresionada();
 
@@ -79,7 +88,7 @@ int main()
 
         rx += ajuste_x;
         ry += ajuste_y;
-        //ventana.raton(&rx, &ry);
+        // ventana.raton(&rx, &ry);
         // ventana.imprimeEnConsola("X=%i - Y=%i\n", rx, ry);
 
         aceleracion += GRAVEDAD;
@@ -126,7 +135,7 @@ int main()
         ventana.color(COLORES.ROJO);
 
         // ventana.rectanguloRelleno(rectx, recty, rectx + 100, recty + 100);
-        ventana.muestraImagen(rectx, recty, kirby);
+        if(vivo) ventana.muestraImagen(rectx, recty, kirby);
         // ventana.muestraImagenEscalada(rectx, recty,100,100, kirby);
 
         ventana.circulo(rx, ry, 20);
@@ -136,8 +145,20 @@ int main()
         ventana.linea(rx, ry + 10, rx, ry + 30);
 
         ventana.texto(200, 200, "Hola Mundo XD");
-        if(!btn) {
+        if (!btn)
+        {
             ventana.texto1(rx, ry, "Piyuuuu", 100, "Gabriola");
+            esp32->digitalWrite(esp32, MTR, true);
+
+            if (rx > rectx && rx < rectx + ventana.anchoImagen(kirby) &&
+                ry > recty && ry < recty + ventana.altoImagen(kirby))
+            {
+                vivo = false;
+            }
+        }
+        else
+        {
+            esp32->digitalWrite(esp32, MTR, false);
         }
         ventana.texto2(400, 100, "Holi XD", 100, "Gabriola", true, true, true);
 
